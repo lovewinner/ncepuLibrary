@@ -9,18 +9,6 @@ function getByClass(tagName, sClss) {
     return aResult;
 }
 
-function bmw(array) {
-    for (var i = 0; i < array.length; i++) {
-        for (var j = 0; j < array[i].length; j++) {
-            if (j % 2 == 1) {
-                array[i][j].style.backgroundColor = "#ddd";
-                array[i][j].style.borderTop = "1px solid #ccc";
-                array[i][j].style.borderBottom = "1px solid #ccc";
-            }
-        };
-    };
-}
-
 function addClass(obj, clssName) {
     for (var i = 0; i < obj.length; i++) {
         obj[i].onclick = function() {
@@ -67,7 +55,6 @@ function startMove(obj, attr, iTarget) {
     }, 30)
 }
 
-
 function picChange() {
     var oUlPic = getByClass("ul", "pic-tab")[0];
     var aPicLi = oUlPic.getElementsByTagName("li");
@@ -86,27 +73,38 @@ function picChange() {
 
 }
 
-window.onload = function() {
+//斑马纹效果
+function zebra() {
     var aDiv = getByClass("div", "database");
     var aUl = aDiv[0].getElementsByTagName("ul");
     var aLi = [];
+    for (var i = 0; i < aUl.length; i++) {
+        aLi.push(aUl[i].getElementsByTagName("li"));
+    };
+    for (var i = 0; i < aLi.length; i++) {
+        for (var j = 0; j < aLi[i].length; j++) {
+            if (j % 2 == 1) {
+                aLi[i][j].style.backgroundColor = "#ddd";
+                aLi[i][j].style.borderTop = "1px solid #ccc";
+                aLi[i][j].style.borderBottom = "1px solid #ccc";
+            }
+        };
+    };
+}
+
+//first-class h2单击事件
+function firstClassClick() {
     var aUlFirstClass = getByClass("ul", "first-class");
     var aH2 = aUlFirstClass[0].getElementsByTagName("h2");
     var aUlScndClss = getByClass("ul", "second-class");
     var aUlScndClssLi = [];
-
-    //斑马纹效果
-    for (var i = 0; i < aUl.length; i++) {
-        aLi.push(aUl[i].getElementsByTagName("li"));
-    };
-
-    bmw(aLi);
-
-    //first-class h2单击事件
     for (var i = 0; i < aH2.length; i++) {
         aH2[i].onclick = function() {
             for (var i = 0; i < aH2.length; i++) {
                 aH2[i].className = "";
+            };
+            for (var i = 0; i < aUlScndClss.length; i++) {
+                aUlScndClssLi.push(aUlScndClss[i].getElementsByTagName("li"));
             };
             for (var i = 0; i < aUlScndClssLi.length; i++) {
                 for (var j = 0; j < aUlScndClssLi[i].length; j++) {
@@ -117,8 +115,14 @@ window.onload = function() {
             this.className = "first-class-active";
         }
     }
+}
 
-    //second-class li单击事件
+//second-class li单击事件
+function secondClassClick() {
+    var aUlFirstClass = getByClass("ul", "first-class");
+    var aH2 = aUlFirstClass[0].getElementsByTagName("h2");
+    var aUlScndClss = getByClass("ul", "second-class");
+    var aUlScndClssLi = [];
     for (var i = 0; i < aUlScndClss.length; i++) {
         aUlScndClssLi.push(aUlScndClss[i].getElementsByTagName("li"));
     };
@@ -146,5 +150,4 @@ window.onload = function() {
             }
         };
     };
-    picChange();
 }
