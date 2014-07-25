@@ -13,9 +13,9 @@ function addClass(obj, clssName) {
     for (var i = 0; i < obj.length; i++) {
         obj[i].onclick = function() {
             for (var i = 0; i < obj.length; i++) {
-                obj[i].className = "";
+                obj[i].className = obj[i].className.replace(clssName, '');
             };
-            this.className = clssName;
+            this.className += " " + clssName;
         }
     }
 }

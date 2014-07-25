@@ -30,14 +30,13 @@ body {
     position: relative;
     width: 1070px;
     margin: 0 auto;
-    padding-top: 33px;
     text-align: center;
 }
 .container-background {
     position: absolute;
     z-index: -1;
     width: 1070px;
-    height: 940px;
+    height: 100%;
     margin: 0 auto;
     opacity: .7;
     background: #fff;
@@ -46,16 +45,17 @@ body {
 .container-left {
     float: left;
     width: 17px;
-    height: 940px;
+    height: 100%;
     background: url(../img/container-left.jpg) repeat-y;
 }
 .container-right {
     float: right;
     width: 17px;
-    height: 940px;
+    height: 100%;
     background: url(../img/container-right.jpg) repeat-y;
 }
 .container-body {
+    padding-top: 33px;
     width: 1036px;
     margin: 0 auto;
 }
@@ -85,7 +85,7 @@ body {
     position: absolute;
     overflow: hidden;
     opacity: 0;
-    filter:alpha(opacity:0);
+    filter: alpha(opacity: 0);
 }
 .content-sidebar {
     float: left;
@@ -94,11 +94,11 @@ body {
 }
 .content-sidebar h1 {
     font-family: '微软雅黑';
-    font-size: 24px;
+    font-size: 22px;
     margin-top: 37px;
     color: #9d1e2f;
 }
-.first-class {
+.news-class, .first-class {
     width: 205px;
     margin: 15px auto 0;
     text-align: left;
@@ -133,11 +133,6 @@ body {
     margin-top: 10px;
     margin-right: 5px;
 }
-/*.second-class-active{
-    font-weight: bold;
-    color: #9d1e2f;
-}*/
-
 .second-class li a {
     font-family: '宋体';
     font-size: 14px;
@@ -156,12 +151,15 @@ body {
 .content-body {
     float: right;
     width: 700px;
-    height: 650px;
     text-align: left;
+    margin-bottom: 30px;
 }
 .second-links {
+    width: 660px;
     margin-top: 50px;
+    padding-bottom: 14px;
     color: #9a2635;
+    border-bottom: 1px solid #9a2635;
 }
 .second-links li {
     display: inline-block;
@@ -181,16 +179,14 @@ body {
 .info {
     width: 675px;
     height: 45px;
-    margin-top: 14px;
     margin-bottom: 17px;
-    border-top: 1px solid #9a2635;
     border-bottom: 1px solid #999;
     background: #eee;
 }
 .info p {
     font-family: '宋体';
     font-size: 12px;
-    margin: 15px 25px;
+    padding: 15px 25px;
     color: #9a2635;
 }
 .database-right, .database-left {
@@ -280,4 +276,89 @@ body {
     font-size: 14px;
     color: #858483;
     line-height: 80px;
+}
+/*newsList页面*/
+
+.news-class {
+    text-align: center;
+    padding-top: 20px;
+}
+.news-class li {
+    margin: 0px auto 10px;
+    width: 110px;
+    height: 30px;
+}
+.news-class-active {
+    background: #951d2d;
+}
+.news-class .news-class-active a {
+    color: #fff;
+}
+.news-class .news-class-active a:hover {
+    color: #fff;
+}
+.news-class li a {
+    line-height: 30px;
+    color: #000;
+    text-decoration: none;
+}
+.news-class li a:hover {
+    color: #951d2d;
+}
+.news-list {
+    margin: 25px 0 0 50px;
+    width: 540px;
+}
+.news-list li {
+    border-bottom: 1px dashed #999;
+    height: 40px;
+    line-height: 40px;
+}
+.news-list li a {
+    color: #555;
+    text-decoration: none;
+    font-family: '微软雅黑';
+    font-size: 14px;
+}
+.news-list li a:hover {
+    color: #951d2d;
+}
+.news-list li a span {
+    float: right;
+    font-size: 12px;
+}
+.pager-wrap {
+    width: 640px;
+}
+.pager {
+    margin: 25px auto 0;
+    text-align: center;
+}
+.pager li {
+    display: inline-block;
+    line-height: 20px;
+}
+.pager .page-first a, .pager .page-last a {
+    width: 45px;
+}
+.pager .page-prev a, .pager .page-next a {
+    width: 50px;
+}
+.pager li a {
+    text-align: center;
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: #555;
+    font-family: '宋体';
+    font-size: 14px;
+    text-decoration: none;
+}
+.pager li a:hover {
+    color: #fff;
+    background: #951d2d;
+}
+.pager .page-active a {
+    color: #fff;
+    background: #951d2d;
 }
