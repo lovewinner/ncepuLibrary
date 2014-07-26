@@ -108,8 +108,7 @@ function firstClassClick() {
             };
             for (var i = 0; i < aUlScndClssLi.length; i++) {
                 for (var j = 0; j < aUlScndClssLi[i].length; j++) {
-                    aUlScndClssLi[i][j].style.fontWeight = "normal";
-                    aUlScndClssLi[i][j].getElementsByTagName("a")[0].style.color = "#555";
+                    aUlScndClssLi[i][j].className = ""
                 };
             };
             this.className = "first-class-active";
@@ -135,13 +134,11 @@ function secondClassClick() {
                 };
                 for (var i = 0; i < aUlScndClssLi.length; i++) {
                     for (var j = 0; j < aUlScndClssLi[i].length; j++) {
-                        aUlScndClssLi[i][j].style.fontWeight = "normal";
-                        aUlScndClssLi[i][j].getElementsByTagName("a")[0].style.color = "#555";
+                        aUlScndClssLi[i][j].className = ""
                     };
                 };
                 //对单击的该元素增加样式
-                this.style.fontWeight = "bold";
-                this.getElementsByTagName("a")[0].style.color = "#9d1e2f";
+                this.className = "second-class-active";
                 if (this.parentNode.previousElementSibling) {
                     this.parentNode.previousElementSibling.className = "first-class-active";
                 } else {
@@ -150,4 +147,11 @@ function secondClassClick() {
             }
         };
     };
+}
+
+//contentShadow
+function contentShadow() {
+    var oDivContentBody = getByClass("div", "content-body")[0];
+    var oImgContentShadow = getByClass("img", "content-shadow")[0];
+    oImgContentShadow.style.height = oDivContentBody.offsetHeight + "px";
 }
