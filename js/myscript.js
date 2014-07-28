@@ -155,3 +155,87 @@ function contentShadow() {
     var oImgContentShadow = getByClass("img", "content-shadow")[0];
     oImgContentShadow.style.height = oDivContentBody.offsetHeight + "px";
 }
+
+//首页
+function searchTab() {
+    var oUl = getByClass("ul", "search-tab")[0];
+    var aLi = oUl.getElementsByTagName("li");
+    var aDiv = getByClass("div", "search-content");
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].style.zIndex = -i + 4;
+        aLi[i].onmouseover = function() {
+            for (var j = 0; j < aLi.length; j++) {
+                aLi[j].className = "";
+                aLi[j].style.zIndex = -j + 4;
+                aLi[j].style.background = "url(img/search-tab.png)"
+                aLi[j].getElementsByTagName("a")[0].style.color = "#898a89";
+                aDiv[j].style.display = "none";
+            };
+            this.style.background = "url(img/search-tab-active" + (this.index + 1) + ".png)"
+            this.style.zIndex = 5;
+            this.getElementsByTagName("a")[0].style.color = "#fff";
+            aDiv[this.index].style.display = "block";
+            if (this.index != 0) {
+                aDiv[this.index].style.zIndex = 5;
+            };
+        }
+    };
+}
+
+function searchContentDrop() {
+    var aUl = getByClass("ul", "search-content-drop");
+    var aUlCollectionsLi = aUl[0].getElementsByTagName("li");
+    var aP1Explanation = getByClass("div", "explanation")[1].getElementsByTagName("p")[0];
+    var iLiHeight = getStyle(aUl[0], "height");
+    var oButtonHidden = document.getElementById("strSearchType");
+    var oForm2=document.getElementById("integrate");
+
+    for (var i = 0; i < aUl.length; i++) {
+        aUl[i].index = i;
+        aUl[i].onmouseover = function() {
+            var aLi = this.getElementsByTagName("li");
+            var SumHeight = aLi.length * parseInt(iLiHeight) + "px";
+            this.style.height = SumHeight;
+            for (var j = 0; j < aLi.length; j++) {
+                aLi[j].onmouseover = function() {
+                    this.style.background = "#ccc";
+                    this.style.color = "#fff";
+                };
+                aLi[j].onmouseout = function() {
+                    this.style.background = "";
+                    this.style.color = "#828282";
+                };
+                aLi[j].onclick = function() {
+                    this.style.background = "";
+                    this.style.color = "#828282";
+                    this.parentNode.insertBefore(this, this.parentNode.children[0]);
+                    this.parentNode.style.height = iLiHeight;
+                    if (this.parentNode.index == 0) { //改变馆藏目录传递的参数
+                        oButtonHidden.value = this.id;
+                    } else if (this.parentNode.index == 1) { //改变整合检索传递的参数
+                        switch (this.id) {
+                            case "blyun":
+                                oForm2.action="http://www.blyun.com/gosearch.jsp";
+                                getByClass("input", "searchContent")[1].placeholder = "百链原文索取检索词…";
+                                aP1Explanation.innerHTML = "说明：提供一站式外文搜索，该平台拥有包括Springer Link等上百个外文数据库，可自动进行文献传递。";
+                                break;
+                            case "bjtech":
+                                getByClass("input", "searchContent")[1].placeholder = "高科联盟检索词…";
+                                aP1Explanation.innerHTML = "说明：高科联盟是北京11所高校图书馆建立的各类文献资源的目录导航共享共知文献传递服务系统，可自动进行文献传递。";
+                                break;
+                            case "ccc":
+                                oForm2.action="http://ccc.calis.edu.cn/result.php";
+                                getByClass("input", "searchContent")[1].placeholder = "外文期刊网检索词…";
+                                aP1Explanation.innerHTML = "说明：外文期刊网是中国高校文献保障系统（CALIS）提供的全面揭示国内高校纸本期刊和电子期刊的综合服务平台，可提供文献传递。";
+                                break;
+                        }
+                    }
+                }
+            };
+        }
+        aUl[i].onmouseout = function() {
+            this.style.height = iLiHeight;
+        }
+    };
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="华北电力大学,保定,图书馆" />
+    <meta name="description" content="华北电力大学（保定）图书馆" />
+    <meta name="generator" content="Sublime Text 3" />
+    <meta name="author" content="306166485@qq.com" />
+    <meta name="robots" content="index" />
+    <meta name="renderer" content="webkit" />
+    <title>华北电力大学图书馆</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/myscript.js"></script>
+</head>
+
+<body>
+    <div class="top-nav">
+        <div class="top-nav-left"></div>
+        <div class="top-nav-right"></div>
+        <div class="top-nav-center"></div>
+    </div>
+
+    <div class="container">
+        <div class="container-background">
+            <div class="container-left"></div>
+            <div class="container-right"></div>
+        </div>
+        <div class="container-body">
+            <div class="header">
+                <a href="javascript:void(0);">
+                    <img src="img/logo.png" alt="华北电力大学图书馆">
+                </a>
+                <ul class="pic-tab">
+                    <li style="opacity: 1;filter:alpha(opacity:100);">
+                        <img src="img/1.jpg" alt="1">
+                    </li>
+                    <li>
+                        <img src="img/2.jpg" alt="2">
+                    </li>
+                    <li>
+                        <img src="img/3.jpg" alt="3">
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="home-content-left">
+                    <div class="home-content-left-bg"></div>
+                    <div class="search-wrap">
+                        <ul class="search-tab">
+                            <li class="search-tab-active"><a href="javascript:void(0);">馆藏目录</a>
+                            </li>
+                            <li><a href="javascript:void(0);">整合检索</a>
+                            </li>
+                            <li><a href="javascript:void(0);">站内搜索</a>
+                            </li>
+                            <li><a href="javascript:void(0);">我的图书馆</a>
+                            </li>
+                        </ul>
+                        <div class="search-content" id="collections-wrap">
+                            <form id="collections" action="http://202.206.214.254:8080/opac/openlink.php" method="get" name="f" target="_blank">
+                                <input class="searchContent" type="text" placeholder="请您输入检索词…" name="strText">
+                                <div class="search-content-drop-wrap">
+                                    <ul class="search-content-drop">
+                                        <li id="title">题名
+                                        </li>
+                                        <li id="author">责任者
+                                        </li>
+                                        <li id="keyword">主题词
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input id="strSearchType" type="hidden" name="strSearchType" value="title">
+                                <input class="searchButton" type="submit" value="">
+                                <div class="clearfix"></div>
+                            </form>
+                            <div class="explanation">
+                                <img src="img/explanation.png" alt="">
+                                <p>说明：是<a href="http://202.206.214.254:8080/opac/" target="_blank" >图书馆书目检索系统（OPAC）</a>，提供对馆藏纸本图书的书目查询，含图书、期刊、学位论文。</p>
+                            </div>
+                        </div>
+                        <div class="search-content" id="integrate-wrap">
+                            <form id="integrate" action="http://www.blyun.com/gosearch.jsp" method="get" target="_blank">
+                                <input class="searchContent" type="text" name="sw" placeholder="百链原文索取检索词…">
+                                <div class="search-content-drop-wrap">
+                                    <ul class="search-content-drop">
+                                        <li id="blyun">百链
+                                        </li>
+                                        <li id="bjtech">高科联盟
+                                        </li>
+                                        <li id="ccc">外文期刊网
+                                        </li>
+                                    </ul>
+                                </div>
+                                <input id="cccType" type="hidden" name="from" value="0">
+                                <input class="searchButton" type="submit" value="">
+                                <div class="clearfix"></div>
+                            </form>
+                            <div class="explanation">
+                                <img src="img/explanation.png" alt="">
+                                <p>说明：提供一站式外文搜索，该平台拥有包括Springer Link等上百个外文数据库，可自动进行文献传递。</p>
+                            </div>
+                        </div>
+                        <div class="search-content" id="cite-wrap">
+                            <form id="cite" action="front/sASearch.aspx" method="get" target="_blank">
+                                <input class="searchContent" type="text" placeholder="请您输入检索词…" name="keyword">
+                                <input class="searchButton" type="submit" value="">
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div class="search-content" id="mylib-wrap">
+                            <form id="mylib" action="" method="get" target="_blank">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/home-content-shadow.png" alt="" class="home-content-shadow">
+                <div class="clearfix"></div>
+            </div>
+            <div class="bottom-links">
+                <ul>
+                    <li><a href="http://www.calis.edu.cn/educhina/pages/portal.jsp" target="_blank">CALIS中心</a>
+                    </li>|
+                    <li><a href="http://www.hb.calis.edu.cn:8090/" target="_blank">Calis河北省中心</a>
+                    </li>|
+                    <li><a href="http://202.112.118.46/ywcdwz/index.html" target="_blank">BALIS</a>
+                    </li>|
+                    <li><a href="http://www.cashl.edu.cn/cashlportal/" target="_blank">CASHL</a>
+                    </li>|
+                    <li><a href="http://www.nstl.gov.cn/" target="_blank">NSTL</a>
+                    </li>|
+                    <li><a href="http://www.bjtech.superlib.net" target="_blank">高科联盟</a>
+                    </li>|
+                    <li><a href="http://tgw.hbu.edu.cn/" target="_blank">河北省图工委</a>
+                    </li>|
+                    <li><a href="javascript:void(0);" target="_blank">中国高校图书馆导航</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p>版权所有：华北电力大学（保定）图书馆</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+picChange();
+searchTab();
+searchContentDrop();
+</script>
+
+</html>
